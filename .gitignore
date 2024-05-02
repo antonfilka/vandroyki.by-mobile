@@ -87,6 +87,7 @@ web_modules/
 .next
 out
 
+<<<<<<< HEAD
 # Nuxt.js build / generate output
 .nuxt
 dist
@@ -128,3 +129,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+=======
+# Temporary files created by Metro to check the health of the file watcher
+.metro-health-check*
+>>>>>>> 2894677 (Initial commit)

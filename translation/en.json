@@ -1,0 +1,20 @@
+{
+  "button": {
+    "russian": "Switch language to Russian",
+    "english": "Switch language to English"
+  },
+  "common": {
+    "profile": "Profile",
+    "places": "Places",
+    "events": "Events",
+    "friends": "Friends"
+  },
+  "settingsModal": {
+    "title": "Settings"
+  },
+  "places": { "title": "Places", "suggestButton": "Suggest new place" },
+  "events": { "title": "Events" },
+  "friends": { "title": "Friends" },
+  "profile": { "title": "Profile" },
+  "suggestPlace": { "title": "Suggest new place", "submitButton": "Submit" }
+}
