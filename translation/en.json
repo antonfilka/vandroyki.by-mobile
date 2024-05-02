@@ -1,8 +1,20 @@
 {
   "button": {
-    "french": "Switch language to French",
+    "russian": "Switch language to Russian",
     "english": "Switch language to English"
   },
-  "getStarted": "Open up the code for this screen:",
-  "changeCode": "Change any of the text, save the file, and your app will automatically update."
+  "common": {
+    "profile": "Profile",
+    "places": "Places",
+    "events": "Events",
+    "friends": "Friends"
+  },
+  "settingsModal": {
+    "title": "Settings"
+  },
+  "places": { "title": "Places", "suggestButton": "Suggest new place" },
+  "events": { "title": "Events" },
+  "friends": { "title": "Friends" },
+  "profile": { "title": "Profile" },
+  "suggestPlace": { "title": "Suggest new place", "submitButton": "Submit" }
 }

@@ -3,13 +3,13 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { forwardRef } from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 
-export const HeaderButton = forwardRef<typeof Pressable, { onPress?: () => void }>(
+export const HeaderBackButton = forwardRef<typeof Pressable, { onPress?: () => void }>(
   ({ onPress }, ref) => {
     return (
       <Pressable onPress={onPress}>
         {({ pressed }) => (
           <Ionicons
-            name="information-circle-outline"
+            name="arrow-back-outline"
             size={25}
             color="gray"
             style={[

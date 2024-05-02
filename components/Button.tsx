@@ -1,11 +1,16 @@
+import * as Haptics from 'expo-haptics';
 import { forwardRef } from 'react';
+import { TouchableOpacity } from 'react-native';
+import { Button as TButton, ButtonText, ButtonProps } from 'tamagui';
 
-import { Button as TButton, ButtonText } from '../tamagui.config';
-
-export const Button = forwardRef<TouchableOpacity, ButtonProps>(({ onPress, title }, ref) => {
+export const Button = forwardRef<TouchableOpacity, ButtonProps>(({ onPress, children }, ref) => {
   return (
-    <TButton onPress={onPress}>
-      <ButtonText>{title}</ButtonText>
+    <TButton
+      onPress={(e) => {
+        onPress && onPress(e);
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      }}>
+      <ButtonText>{children}</ButtonText>
     </TButton>
   );
 });

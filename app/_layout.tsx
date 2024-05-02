@@ -1,9 +1,11 @@
 import '../translation';
 
+import { ToastProvider, ToastViewport } from '@tamagui/toast';
 import { useFonts } from 'expo-font';
 import { Stack, SplashScreen } from 'expo-router';
 import React, { useEffect } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TamaguiProvider } from 'tamagui';
 
 import config from '../tamagui.config';
@@ -21,6 +23,8 @@ export default function RootLayout() {
     InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
   });
 
+  const { left, top, right } = useSafeAreaInsets();
+
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
@@ -30,13 +34,20 @@ export default function RootLayout() {
   if (!loaded) return null;
 
   return (
-    <TamaguiProvider config={config}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <Stack>
-          <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ title: 'Modal', presentation: 'modal' }} />
-        </Stack>
-      </GestureHandlerRootView>
-    </TamaguiProvider>
+    <SafeAreaProvider>
+      <TamaguiProvider config={config}>
+        <ToastProvider burntOptions={{ from: 'bottom' }}>
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <ToastViewport flexDirection="column-reverse" top={top} left={left} right={right} />
+            <Stack>
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen name="suggestPlace" options={{ headerShown: false }} />
+              <Stack.Screen name="place" options={{ headerShown: false }} />
+              <Stack.Screen name="modal" options={{ title: 'Modal', presentation: 'modal' }} />
+            </Stack>
+          </GestureHandlerRootView>
+        </ToastProvider>
+      </TamaguiProvider>
+    </SafeAreaProvider>
   );
 }
